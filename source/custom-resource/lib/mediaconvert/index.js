@@ -226,15 +226,15 @@ const mediaPackageTemplates = [
     },
     {
         name: '_Ott_2160p_Avc_Aac_9X16_mvod',
-        file: './lib/mediaconvert/templates/2160p_avc_aac_9x16_qvbr.json'
+        file: './lib/mediaconvert/templates/2160p_avc_aac_9x16_mvod.json'
     },
     {
         name: '_Ott_1080p_Avc_Aac_9X16_mvod',
-        file: './lib/mediaconvert/templates/1080p_avc_aac_9x16_qvbr.json'
+        file: './lib/mediaconvert/templates/1080p_avc_aac_9x16_mvod.json'
     },
     {
         name: '_Ott_720p_Avc_Aac_9X16_mvod',
-        file: './lib/mediaconvert/templates/720p_avc_aac_9x16_qvbr.json'
+        file: './lib/mediaconvert/templates/720p_avc_aac_9x16_mvod.json'
     }
 ];
 
