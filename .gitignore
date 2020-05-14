@@ -1,7 +1,6 @@
 # compiled output
 **/dist
-**/global-s3-assets
-**/regional-s3-assets
+
 **/open-source
 **/.zip
 **/tmp
