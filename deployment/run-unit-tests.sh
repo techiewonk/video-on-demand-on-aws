@@ -38,6 +38,6 @@ npm test
 cd ../mediainfo
 rm -rf ./pytests && mkdir ./pytests
 cp lambda_function.py ./test*.py ./pytests
-pip3 install boto3 -t ./pytests
-python3 -m unittest discover -s ./pytests -v
+pip install boto3 -t ./pytests
+python -m unittest discover -s ./pytests -v
 rm -rf ./pytests

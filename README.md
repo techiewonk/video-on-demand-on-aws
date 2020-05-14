@@ -213,8 +213,11 @@ chmod +x ./build-s3-dist.sh
 
 Deploy the distributable to the Amazon S3 bucket in your account:
 ```
-aws s3 cp ./regional-s3-assets/ s3://my-bucket-us-east-1/video-on-demand-on-aws/version/ --recursive --acl bucket-owner-full-control
+aws s3 cp ./regional-s3-assets/ s3://casterapp/vod-aws/6/ --recursive --acl bucket-owner-full-control
 ```
+
+
+casterapp.s3.ap-northeast-2.amazonaws.com
 
 ### 4. Launch the CloudFormation template.
 * Get the link of the video-on-demand-on-aws.template uploaded to your Amazon S3 bucket.
