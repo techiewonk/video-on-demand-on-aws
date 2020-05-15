@@ -202,14 +202,14 @@ aws s3 mb s3://my-bucket-us-east-1
 Build the distributable:
 ```
 chmod +x ./build-s3-dist.sh
-./build-s3-dist.sh my-bucket video-on-demand-on-aws version
+./build-s3-dist.sh casterapp vod-aws 7
 ```
 
 > **Notes**: The _build-s3-dist_ script expects the bucket name as one of its parameters, and this value should not include the region suffix.
 
 Deploy the distributable to the Amazon S3 bucket in your account:
 ```
-aws s3 cp ./regional-s3-assets/ s3://casterapp/vod-aws/6/ --recursive --acl bucket-owner-full-control
+aws s3 cp ./regional-s3-assets/ s3://casterapp/vod-aws/7/ --recursive --acl bucket-owner-full-control
 ```
 
 
