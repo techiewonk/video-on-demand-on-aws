@@ -196,24 +196,33 @@ chmod +x ./run-unit-tests.sh
 The CloudFormation template is configured to pull the Lambda deployment packages from Amazon S3 bucket in the region the template is being launched in. Create a bucket in the desired region with the region name appended to the name of the bucket (e.g. for us-east-1 create a bucket named ```my-bucket-us-east-1```).
 ```
 aws s3 mb s3://my-bucket-us-east-1
+
+aws s3 mb s3://shortcon-vod --region us-east-1 
+aws s3 mb s3://shortcon-vod-us-east-1 --region us-east-1
+
+aws s3 mb s3://shortcon-vod --region us-east-1 --profile shortcon
+aws s3 mb s3://shortcon-vod-us-east-1 --region us-east-1 --profile shortcon
+
+
+
 ```
 
 ### 3. Create the deployment packages
 Build the distributable:
 ```
 chmod +x ./build-s3-dist.sh
-./build-s3-dist.sh casterapp vod-aws 7
+./build-s3-dist.sh shortcon-vod vod-aws 1
 ```
 
 > **Notes**: The _build-s3-dist_ script expects the bucket name as one of its parameters, and this value should not include the region suffix.
 
 Deploy the distributable to the Amazon S3 bucket in your account:
 ```
-aws s3 cp ./regional-s3-assets/ s3://casterapp/vod-aws/7/ --recursive --acl bucket-owner-full-control
+aws s3 cp ./regional-s3-assets/ s3://shortcon-vod/vod-aws/1/ --recursive --acl bucket-owner-full-control --profile shortcon
+
+aws s3 cp ./regional-s3-assets/ s3://shortcon-vod-us-east-1/vod-aws/1/ --recursive --acl bucket-owner-full-control --profile shortcon
 ```
 
-
-casterapp.s3.ap-northeast-2.amazonaws.com
 
 ### 4. Launch the CloudFormation template.
 * Get the link of the video-on-demand-on-aws.template uploaded to your Amazon S3 bucket.
