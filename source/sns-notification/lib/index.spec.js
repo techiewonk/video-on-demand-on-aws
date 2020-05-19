@@ -33,7 +33,10 @@ describe('#SNS::', () => {
         workflowStatus: 'Complete',
         jobTemplate_720p: 'jobTemplate_720p',
         jobTemplate_1080p: 'jobTemplate_1080p',
-        jobTemplate_2160p: 'jobTemplate_1080p'
+        jobTemplate_2160p: 'jobTemplate_2160p',
+        jobTemplate_720p_portrait: 'jobTemplate_720p_portrait',
+        jobTemplate_1080p_portrait: 'jobTemplate_1080p_portrait',
+        jobTemplate_2160p_portrait: 'jobTemplate_2160p_portrait'
     };
 
     const _error = {

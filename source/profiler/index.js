@@ -39,6 +39,25 @@ exports.handler = async (event) => {
         let mediaInfo = JSON.parse(event.srcMediainfo);
         event.srcHeight = mediaInfo.video[0].height;
         event.srcWidth = mediaInfo.video[0].width;
+        event.rotation = mediaInfo.video[0].rotation;
+
+        event.isRotated = (event.rotation !== 0 && event.rotation !== 180);
+        if (event.isRotated) {
+          event.srcHeight = mediaInfo.video[0].width;
+          event.srcWidth = mediaInfo.video[0].height;
+        } else {
+          event.srcHeight = mediaInfo.video[0].height;
+          event.srcWidth = mediaInfo.video[0].width;
+        }
+    
+        event.isPortrait = event.srcHeight > event.srcWidth;
+        event.lesserDimension = event.isPortrait ? event.srcWidth : event.srcHeight;
+
+
+
+
+
+
 
         // Determine encoding by matching the srcHeight to the nearest profile.
         const profiles = [2160, 1080, 720];
@@ -46,7 +65,7 @@ exports.handler = async (event) => {
         let encodeProfile;
 
         profiles.some(p => {
-            let profile = Math.abs(event.srcHeight - p);
+            let profile = Math.abs(event.lesserDimension - p);
             if (profile > lastProfile) {
                 return true;
             }
@@ -76,10 +95,13 @@ exports.handler = async (event) => {
             const jobTemplates = {
                 '2160': event.jobTemplate_2160p,
                 '1080': event.jobTemplate_1080p,
-                '720': event.jobTemplate_720p
+                '720': event.jobTemplate_720p,
+                '2160p': event.jobTemplate_2160p_portrait,
+                '1080p': event.jobTemplate_1080p_portrait,
+                '720p': event.jobTemplate_720p_portrait
             };
 
-            event.jobTemplate = jobTemplates[encodeProfile];
+            event.jobTemplate = jobTemplates[encodeProfile+(event.isPortrait ? 'p' : '')];
             console.log(`Chosen template:: ${event.jobTemplate}`);
 
             event.isCustomTemplate = false;

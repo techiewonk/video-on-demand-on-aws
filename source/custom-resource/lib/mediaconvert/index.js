@@ -208,6 +208,17 @@ const cbrTemplates = [{
 {
     name: '_Ott_720p_Avc_Aac_16x9',
     file: './lib/mediaconvert/templates/720p_avc_aac_16x9.json'
+},
+{    name: '_Ott_2160p_Avc_Aac_9x16',
+    file: './lib/mediaconvert/templates/2160p_avc_aac_9x16.json'
+},
+{
+    name: '_Ott_1080p_Avc_Aac_9x16',
+    file: './lib/mediaconvert/templates/1080p_avc_aac_9x16.json'
+},
+{
+    name: '_Ott_720p_Avc_Aac_19x16',
+    file: './lib/mediaconvert/templates/720p_avc_aac_9x16.json'
 }
 ];
 

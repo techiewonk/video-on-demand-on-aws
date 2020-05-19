@@ -37,6 +37,9 @@ describe('#PROFILER::', () => {
             jobTemplate_2160p: 'tmpl1',
             jobTemplate_1080p: 'tmpl2',
             jobTemplate_720p: 'tmpl3',
+            jobTemplate_2160p_portrait: 'tmpl4',
+            jobTemplate_1080p_portrait: 'tmpl5',
+            jobTemplate_720p_portrait: 'tmpl6',
             frameCapture: true
         }
     };
